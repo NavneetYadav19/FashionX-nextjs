@@ -6,7 +6,6 @@ import { useCart } from '../context/CartContext';
 interface Product {
   name: string;
   image: string;
-  description: string;
   price: number;
 }
 
@@ -53,12 +52,6 @@ const NewArrivalsSection: React.FC<NewArrivalsSectionProps> = ({ products }) => 
             >
               {product.name}
             </motion.h3>
-            <motion.p
-              className="text-gray-400 mb-2"
-              whileHover={{ color: '#FFD700' }}
-            >
-              {product.description}
-            </motion.p>
             <motion.p
               className="flex text-blue-50 my-2 sm:my-5 text-lg sm:text-xl font-bold"
             >
