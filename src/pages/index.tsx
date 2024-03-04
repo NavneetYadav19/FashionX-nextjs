@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import ImageSlider from '../components/ImageSlider';
 import CategorySection from '../components/CategorySection';
 import NewArrivalsSection from '../components/NewArrivalsSection';
-import FavoriteBrandsSection from '../components/FavoriteBrandsSection';
 import CartPage from '../components/CartPage';
 
 const Home: React.FC = () => {

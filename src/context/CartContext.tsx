@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
 interface Product {
   name: string;
@@ -15,16 +15,15 @@ interface CartContextProps {
   cartItems: { [key: string]: CartItem };
   addToCart: (itemName: string, product: Product) => void;
   removeFromCart: (itemName: string) => void;
-  decrementQuantity: (itemName: string) => void; // Added this line
+  decrementQuantity: (itemName: string) => void; 
 }
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
 
-export const CartProvider: React.FC = ({ children }) => {
+export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [cartItems, setCartItems] = useState<{ [key: string]: CartItem }>({});
 
   useEffect(() => {
-    
     const storedCartItems = localStorage.getItem('cartItems');
     if (storedCartItems) {
       setCartItems(JSON.parse(storedCartItems));
@@ -32,7 +31,6 @@ export const CartProvider: React.FC = ({ children }) => {
   }, []);
 
   useEffect(() => {
-   
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
